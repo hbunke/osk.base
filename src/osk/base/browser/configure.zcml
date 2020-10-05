@@ -1,0 +1,31 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="plone">
+
+  <!-- Set overrides folder for Just-a-Bunch-Of-Templates product -->
+  <include package="z3c.jbot" file="meta.zcml" />
+  <browser:jbot
+      directory="overrides"
+      layer="osk.base.interfaces.IOskBaseLayer"
+      />
+
+  <!-- Publish static files -->
+  <plone:static
+      name="osk.base"
+      type="plone"
+      directory="static"
+      />
+
+  <browser:page
+      name="osk_stafflisting_view"
+      for="*"
+      class=".stafflisting.StaffFolderView"
+      template="stafflisting.pt"
+      menu="plone_displayviews"
+      permission="zope2.View"
+      title="OSK Mitarbeiter-innen Liste"
+      />
+
+</configure>
