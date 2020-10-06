@@ -1,40 +1,128 @@
 /* our custom styles */
 
-// DELETE ME:
-.custom-theme-marker {
-    display: none;
-    position: absolute;
-    top: 300px;
-    left: 30%;
-    margin: auto 0;
-    transform: rotate(-20deg);
-    background: #00ECFF;
-    color: #fff;
-    padding: 1em;
-    z-index: 100;
-}
-.section-front-page .custom-theme-marker{
-    display: block;
+
+@plone-body-bg: white;
+
+
+#content-header {
+    // background-color: black;
+    background-color: lighten(#212121, 10%);
+    // background-color: @plone-body-bg;
+    padding-top:5px;
+    padding-bottom:5px;
+    
+    
 }
 
 
-/* TinyMCE templates */
+.portletNews .portletItem {
+    min-height:128px;
+}
 
-// image-grid-2x2:
-.image-grid-2x2 {
-    padding: 0;
-    margin: 0 0 @plone-grid-gutter-width 0;
-    list-style: none;
-    .make-row();
+.ui.secondary.segment.breadcrumbs {
+  display: none;
+}
 
-    > li {
-        .make-xs-column(12);
-        .make-sm-column(6);
-        margin-top: @plone-grid-gutter-width;
 
-        img {
-            max-width: 100%;
-            max-height: 100%;
-        }
+#portal-header {
+    margin: 0px;
+    padding: 15px auto 20px;
+}
+
+// @plone-sitenav-bg: darken(red, 25%);
+@plone-sitenav-bg: lighten(red, 20%);
+
+.plone-nav li a {
+    font-weight:600;
+}
+
+@plone-sitenav-link-hover-bg: lighten(red, 13%);
+@plone-link-color-on-dark:	@plone-sitenav-bg;
+@plone-footer-bg: lighten(#212121, 10%);
+
+.portlet .portletHeader {
+		background: @plone-sitenav-bg;
+		font-weight: @plone-font-weight-light;
+		font-size: @plone-font-size-large;
+		padding: 13px 15px;
+		color: white;
+		text-align: center;
+		> a {
+		color: white;
+		font-weight: 500;
+		}
+	}
+
+
+.newsImageContainer {
+    display:none;
+}
+
+
+
+
+//*// TYPOGRAPHY
+@plone-font-family-sans-serif:  "Source Sans Pro", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif; // Roboto seems Plone's DIN
+@plone-font-family-condensed:   "Roboto Condensed", "Arial Narrow", sans-serif; //just on toolbar
+@plone-font-family-serif:       Georgia, "Times New Roman", Times, serif;
+@plone-font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
+@plone-font-family-base:        @plone-font-family-sans-serif;
+
+
+@plone-font-size-base: 16px;   /* original: 14x; */ 
+
+
+div.bg-red {
+    background-color: @plone-sitenav-bg;
+    color: white;
+    border: 1px solid black;
+    
+}
+
+.at-a-glance-header {
+    
+    padding:6px;
+    text-align:center;
+    font-size:4em;
+    font-weight:600;
+    background-image: url("/osk/tenever_for_web.jpg");
+    background-size: cover;
+    
+}
+
+.at-a-glance-text {
+    font-size: 150%;
+    li {
+        margin-bottom:6px;
     }
+}
+
+
+
+
+.documentDescription {
+  font-size: @plone-font-size-h4;
+  /*font-weight: @plone-font-weight-bold;*/
+  font-weight: @plone-font-weight-regular;
+  color: @plone-text-discreet;
+  margin-bottom: 10px;
+}
+
+
+.documentByLine {
+    font-size:0.8em;
+}
+
+
+/*
+@plone-link-color: darkred; 
+@plone-link-color-on-dark:	darkred;
+@plone-link-color-on-grey: darkred;
+*/
+
+
+/* OSK BASE */
+
+.stafflisting_item {
+    font-size:125%;
 }

@@ -10,7 +10,7 @@
 <metal:content-core fill-slot="content-core">
 <metal:block define-macro="content-core">
 
-   
+
     <!--
     <div metal:define-macro="text-field-view"
       id="parent-fieldname-text" class="stx"
@@ -55,11 +55,26 @@
               <metal:block define-slot="entry">
                 <article class="entry">
                   <header metal:define-macro="listitem" tal:attributes="class python:'vevent' if item_is_event else None">
-                      
-                    <span class="stafflisting_item" tal:attributes="title item_type">
 
-                      
-                    <!-- 
+                    <div style="margin-bottom:30px;">
+
+                    <!-- <span tal:replace="python:view.debug(obj)" /> -->
+
+                      <div style="float:left; margin-right: 12px; border: 1px solid lightgray; padding:2px; width:34px; height:34px; overflow:hidden; text-align:center"
+                          tal:condition="python:view.has_foto(obj)"
+                        >
+                        <img
+                            tal:replace="structure obj/@@images/foto/icon" />
+
+                      </div>
+                    <div>
+
+                    <div>
+                      <p class="stafflisting_item">
+                      <span tal:attributes="title item_type">
+
+                        
+                    <!--
                       <a tal:attributes="href item_link;
                                             class string:$item_type_class $item_wf_state_class url;
                                             title item_type"
@@ -71,16 +86,12 @@
                                         class string:$item_type_class $item_wf_state_class url;
                                         title item_type">
                          <span tal:replace="nachname"/>, <span tal:replace="vorname" />
-                    </a>
-                  
-                      <a tal:attributes="href item_link;"
-                         tal:condition="python: item_has_image and thumb_scale_list">
-                         <img tal:replace="structure python:image_scale.tag(item, 'image', scale=thumb_scale_list, css_class=img_class)" />
-                      </a>
-                  
-                    </span>
-                    
-                    
+
+                     </a>
+                     </span>
+                     <p>
+                  </div>
+
 
                     <metal:block metal:define-macro="document_byline">
                       <div class="documentByLine">
@@ -90,10 +101,10 @@
                             <span tal:content="string:${item/location}" class="location" i18n:name="location">Oslo</span>,
                           </span>
                         </tal:event>
-                        
 
 
-                        
+
+
                         <tal:byline condition="view/show_about">
                           &mdash;
                           <tal:name tal:condition="item_creator"
@@ -127,7 +138,7 @@
                             </tal:comment>
                           </metal:description>
                         </tal:byline>
-                        
+
 
 
                       </div>

@@ -1,0 +1,72 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/@@main_template/macros/master"
+      i18n:domain="plone">
+<body>
+
+<metal:main fill-slot="content-core">
+<metal:content-core define-macro="content-core">
+
+    <!--
+<div tal:replace="structure provider:plone.abovecontenttitle" />
+    -->
+    <!--
+
+  <tal:block repeat="widget view/widgets/values|nothing">
+    <tal:block tal:condition="python:widget.__name__ not in ('IBasic.title', 'IBasic.description', 'title', 'description',)">
+      <tal:widget tal:replace="structure widget/@@ploneform-render-widget"/>
+    </tal:block>
+        </tal:block>
+
+    -->
+
+<!--
+<div tal:replace="structure provider:plone.belowcontenttitle" />
+-->
+
+
+<div class="osk_person_container">
+
+    <div style="float:left; margin-right:20px;" tal:condition="context/foto">
+       <p>
+           <img
+               tal:replace="structure context/@@images/foto/thumb" />
+       </p>
+   </div>
+
+
+   <div>
+        <p tal:content="context/funktionen" class="person_funktionen" style="font-size:125%" />
+        <p><strong>email:</strong>
+            <a tal:attributes="href string:mailto:${context/email}">
+                <span tal:replace="context/email" /></a></p>
+   </div>
+
+</div>
+
+
+        <div metal:use-macro="context/batch_macros/macros/navigation" />
+
+  
+
+ <!--
+
+  <fieldset tal:repeat="group view/groups|nothing"
+            tal:attributes="id python:''.join((group.prefix, 'groups.', group.__name__)).replace('.', '-')">
+    <legend tal:content="group/label" />
+    <tal:block tal:repeat="widget group/widgets/values|nothing">
+      <tal:widget tal:replace="structure widget/@@ploneform-render-widget"/>
+    </tal:block>
+  </fieldset>
+ -->
+
+
+
+</metal:content-core>
+</metal:main>
+
+</body>
+</html>

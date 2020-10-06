@@ -16,10 +16,12 @@ from zope.component import getMultiAdapter
 from zope.component import getUtility
 from zope.contentprovider.interfaces import IContentProvider
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-import random
 
 from plone.app.uuid.utils import uuidToObject
 
+
+
+import random
 
 
 HAS_SECURITY_SETTINGS = True
@@ -29,7 +31,7 @@ except ImportError:
     HAS_SECURITY_SETTINGS = False
 
 
-class StaffFolderView(BrowserView):
+class ManagementView(BrowserView):
 
 #    template = ViewPageTemplateFile('stafflisting.pt')
 
@@ -37,6 +39,11 @@ class StaffFolderView(BrowserView):
     _plone_view = None
     _portal_state = None
     _pas_member = None
+
+
+    def debug(self, obj):
+        import pdb; pdb.set_trace()
+
 
     @property
     def plone_view(self):
@@ -107,7 +114,7 @@ class StaffFolderView(BrowserView):
     def batch(self):
 
         batch = Batch(
-            self.results(sort_on="staff_name", portal_type="person"),
+            self.results(),
             size=self.b_size,
             start=self.b_start,
             orphan=1
@@ -307,11 +314,15 @@ class StaffFolderView(BrowserView):
         return False
 
 
+    def target_uid(self, obj):
+        # import pdb; pdb.set_trace()
+        url = obj.remoteUrl
+        parts = url.split('/')
+        return parts[2]
+
     def has_foto(self, obj):
-        # uid = self.target_uid(obj)
-        try:
-            if obj.foto:
-                return True
-        except:
-            return False
-        
+        uid = self.target_uid(obj)
+        target_obj = uuidToObject(uid)
+        if target_obj.foto:
+            return True
+        return False

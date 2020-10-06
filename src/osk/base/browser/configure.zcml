@@ -28,4 +28,24 @@
       title="OSK Mitarbeiter-innen Liste"
       />
 
+  <browser:page
+      name="osk_person_view"
+      for="*"
+      template="person.pt"
+      menu="plone_displayviews"
+      permission="zope2.View"
+      title="Person View"
+      />
+
+  <browser:page
+    name="osk_management_view"
+    for="*"
+    template="management_listing.pt"
+    class=".management_listing.ManagementView"
+    permission="zope2.View"
+    title="Management View"
+    menu="plone_displayviews"
+    />
+
+
 </configure>
