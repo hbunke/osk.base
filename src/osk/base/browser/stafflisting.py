@@ -69,6 +69,7 @@ class StaffFolderView(BrowserView):
     def b_size(self):
         b_size = getattr(self.request, 'b_size', None)\
             or getattr(self.request, 'limit_display', None) or 200
+        # import pdb; pdb.set_trace()
         return int(b_size)
 
     @property
@@ -110,7 +111,7 @@ class StaffFolderView(BrowserView):
             self.results(sort_on="staff_name", portal_type="person"),
             size=self.b_size,
             start=self.b_start,
-            orphan=1
+            orphan=10
         )
         return batch
 
@@ -314,4 +315,3 @@ class StaffFolderView(BrowserView):
                 return True
         except:
             return False
-        

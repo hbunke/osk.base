@@ -28,6 +28,8 @@ src/osk/base/browser/__init__.py
 src/osk/base/browser/configure.zcml
 src/osk/base/browser/folder.py.orig
 src/osk/base/browser/listing.pt.orig
+src/osk/base/browser/management_listing.pt
+src/osk/base/browser/management_listing.py
 src/osk/base/browser/person.pt
 src/osk/base/browser/stafflisting.pt
 src/osk/base/browser/stafflisting.py
